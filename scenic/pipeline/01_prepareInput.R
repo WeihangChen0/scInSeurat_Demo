@@ -28,9 +28,7 @@ write_tsv(data.frame(intersect(allTFs_dmel$X1, metabolic_only_genes)),
           "resources/TFs/metabolic_TFs_dmel.txt", col_names=F)
 
 # build loom file with metabolic genes and selected highly variable genes
-build_loom("Data/8W_exprMat_regular.loom",
-           cts[gene_keep, metadata$Sample%in%paste0("8W",1:2)])
-build_loom("Data/8Y_exprMat_regular.loom",
-           cts[gene_keep, metadata$Sample%in%paste0("8Y",3:6)])
+build_loom(file.path(test_data_dir,"Data/8W_exprMat_regular.loom"),
+           cts[gene_keep,])
 close_loom(file.path(test_data_dir,"Data/8W_exprMat_regular.loom"))
-close_loom(file.path(test_data_dir,"Data/8Y_exprMat_regular.loom"))
+
